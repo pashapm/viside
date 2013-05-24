@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Touch the Code</string>
+    <string name="action_settings">Настройки</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string name="moveTo">Вперёд на</string>
+    <string name="start">СТАРТ</string>
+
+</resources>

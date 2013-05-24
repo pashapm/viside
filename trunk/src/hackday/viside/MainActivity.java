@@ -58,7 +58,7 @@ public class MainActivity extends Activity {
 		pause.y = 50;
 		grid.mUnits.add(pause);
 		
-		ReceiveMessageBlock receive = new ReceiveMessageBlock(this, "бвРав");
+		ReceiveMessageBlock receive = new ReceiveMessageBlock(this, getString(R.string.start));
 		receive.x = 150;
 		receive.y = 50;
 		grid.mUnits.add(receive);

@@ -22,6 +22,6 @@ public class PauseBlock extends Unit {
 		super.draw(canvas, paint);
 		
 		paint.setTextSize(24);
-		canvas.drawText("œ‡ÛÁ‡: " + mPause + "ÏÒ", x + 100, y + height - 30, paint);
+		canvas.drawText("–ü–∞—É–∑–∞: " + mPause + "–º—Å", x + 100, y + height - 30, paint);
 	}
 }

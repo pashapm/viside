@@ -21,23 +21,23 @@ public class BlocksList extends ListActivity {
 		
 		BlockThumb receive = new BlockThumb();
 		receive.color = Color.parseColor("#ffb264");
-		receive.name = "Получить сообщение";
+		receive.name = "РџРѕР»СѓС‡РёС‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ";
 		
 		BlockThumb time = new BlockThumb();
 		time.color = Color.parseColor("#85dc9a");
-		time.name = "Пауза";
+		time.name = "РџР°СѓР·Р°";
 		
 		BlockThumb move = new BlockThumb();
 		move.color = Color.parseColor("#6491ff");
-		move.name = "Двигать";
+		move.name = "Р”РІРёРіР°С‚СЊ";
 		
 		BlockThumb rotate = new BlockThumb();
 		rotate.color = Color.parseColor("#6491ff");
-		rotate.name = "Вращать";
+		rotate.name = "Р’СЂР°С‰Р°С‚СЊ";
 		
 		BlockThumb loop = new BlockThumb();
 		loop.color = Color.parseColor("#ffb700");
-		loop.name = "Цикл";
+		loop.name = "Р¦РёРєР»";
 		
 		mList.add(receive);
 		mList.add(rotate);
