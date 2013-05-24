@@ -1,6 +1,7 @@
 package hackday.viside;
 
 import android.graphics.Bitmap;
+import android.os.Bundle;
 
 public class Unit {
 
@@ -9,6 +10,8 @@ public class Unit {
 	public int y;
 	public int width;
 	public int height;
+	
+	public Bundle data = new Bundle();
 	
 	void setBitmap(Bitmap b) {
 		bitmap = b;

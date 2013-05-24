@@ -20,7 +20,7 @@ public class OpCanvas extends ImageView {
 	private int mLastY = -1;
 	
 	boolean grid = false;
-	private int mGridSize = 70;
+	private int mGridSize = 60;
 
 	public OpCanvas(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -62,7 +62,8 @@ public class OpCanvas extends ImageView {
 	}
 	
 	private void handleTouchDown(int[] sceneTouch) {
-		for (Unit unit : mUnits) {
+		for (int i=mUnits.size()-1; i>=0; --i) {
+			Unit unit = mUnits.get(i);
 			if (unit.isPointInside(sceneTouch[0], sceneTouch[1])) {
 				mActiveUnit = unit;
 				break;
