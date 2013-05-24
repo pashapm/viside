@@ -1,6 +1,9 @@
 package hackday.viside;
 
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.os.Bundle;
 
 public class Unit {
@@ -11,9 +14,11 @@ public class Unit {
 	public int width;
 	public int height;
 	
+	protected Context mCtx;
+	
 	public Bundle data = new Bundle();
 	
-	void setBitmap(Bitmap b) {
+	public void setBitmap(Bitmap b) {
 		bitmap = b;
 		width = b.getWidth();
 		height = b.getHeight();
@@ -22,4 +27,8 @@ public class Unit {
 	public boolean isPointInside(int px, int py) {
 		return px > x && py > y && px < (x + width) && py < (y + height);
 	}
+	
+	public void draw(Canvas canvas, Paint paint) {
+		canvas.drawBitmap(bitmap, x, y, paint);
+	};
 }

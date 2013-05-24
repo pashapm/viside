@@ -6,6 +6,7 @@ import java.util.List;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ImageView;
@@ -24,17 +25,24 @@ public class OpCanvas extends ImageView {
 
 	public OpCanvas(Context context, AttributeSet attrs) {
 		super(context, attrs);
+		init();
 	}
 
 	public OpCanvas(Context context) {
 		super(context);
+		init();
+	}
+	
+	void init() {
+		mPaint.setAntiAlias(true);
+		mPaint.setTypeface(Typeface.DEFAULT_BOLD);
 	}
 
 	@Override
 	public void onDraw(Canvas canvas) {
-
+		
 		for (Unit unit : mUnits) {
-			canvas.drawBitmap(unit.bitmap, unit.x, unit.y, mPaint);
+			unit.draw(canvas, mPaint);
 		}
 
 	}
