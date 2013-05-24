@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ImageView;
 
-public class SnapGrid extends ImageView {
+public class OpCanvas extends ImageView {
 
 	List<Unit> mUnits = new LinkedList<Unit>();
 	private Paint mPaint = new Paint();
@@ -18,12 +18,15 @@ public class SnapGrid extends ImageView {
 	
 	private int mLastX = -1;
 	private int mLastY = -1;
+	
+	boolean grid = false;
+	private int mGridSize = 70;
 
-	public SnapGrid(Context context, AttributeSet attrs) {
+	public OpCanvas(Context context, AttributeSet attrs) {
 		super(context, attrs);
 	}
 
-	public SnapGrid(Context context) {
+	public OpCanvas(Context context) {
 		super(context);
 	}
 
@@ -68,11 +71,13 @@ public class SnapGrid extends ImageView {
 	}
 
 	public void moveUnit(Unit unit, int tox, int toy) {
-//		int dx = tox - captX;
-//		int dy = toy - captY;
-		
-		unit.x = tox;
-		unit.y = toy;
+		if (grid) {
+			unit.x = tox - tox % mGridSize;
+			unit.y = toy - toy % mGridSize;
+		} else {
+			unit.x = tox;
+			unit.y = toy;
+		}
 	}
 
 }
