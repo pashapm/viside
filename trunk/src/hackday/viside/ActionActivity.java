@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Handler.Callback;
 import android.os.Message;
+import android.view.Window;
 
 public class ActionActivity extends Activity {
 
@@ -22,6 +23,7 @@ public class ActionActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
 		
 		mGrid = new ActorsCanvas(this);
@@ -33,43 +35,43 @@ public class ActionActivity extends Activity {
 	
 	private void makeUnits() {
 		
-//		mPackman = new Unit();
-//		mPackman.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.pacman));
-//		mPackman.x = 10;
-//		mPackman.y = 310;
-//		mGrid.mUnits.add(mPackman);
-//		
-//		mGhost = new Unit();
-//		mGhost.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ghost));
-//		mGhost.x = 10;
-//		mGhost.y = 460;
-//		mGrid.mUnits.add(mGhost);
-//		
-//		mButton1 = new Unit();
-//		mButton1.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.button));
-//		mButton1.x = 10;
-//		mButton1.y = 10;
-//		mButton1.mOnClick = new OnUnitClick() {
-//			
-//			@Override
-//			public void onClick() {
-//				mPackman.x -= 40;
-//			}
-//		};
-//		mGrid.mUnits.add(mButton1);
-//		
-//		mButton2 = new Unit();
-//		mButton2.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.button));
-//		mButton2.x = 10;
-//		mButton2.y = 160;
-//		mButton2.mOnClick = new OnUnitClick() {
-//			
-//			@Override
-//			public void onClick() {
-//				mPackman.x += 40;
-//			}
-//		};
-//		mGrid.mUnits.add(mButton2);
+		mPackman = new Unit();
+		mPackman.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.pacman));
+		mPackman.x = 10;
+		mPackman.y = 310;
+		mGrid.mUnits.add(mPackman);
+		
+		mGhost = new Unit();
+		mGhost.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ghost));
+		mGhost.x = 10;
+		mGhost.y = 460;
+		mGrid.mUnits.add(mGhost);
+		
+		mButton1 = new Unit();
+		mButton1.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.button));
+		mButton1.x = 10;
+		mButton1.y = 10;
+		mButton1.mOnClick = new OnUnitClick() {
+			
+			@Override
+			public void onClick() {
+				mPackman.x -= 40;
+			}
+		};
+		mGrid.mUnits.add(mButton1);
+		
+		mButton2 = new Unit();
+		mButton2.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.button));
+		mButton2.x = 10;
+		mButton2.y = 160;
+		mButton2.mOnClick = new OnUnitClick() {
+			
+			@Override
+			public void onClick() {
+				mPackman.x += 40;
+			}
+		};
+		mGrid.mUnits.add(mButton2);
 		
 		final Handler han = new Handler(new Callback() {
 			
@@ -88,11 +90,11 @@ public class ActionActivity extends Activity {
 					delayedUpdate();
 					mGhost.x += 100;
 					delayedUpdate();
-					mGhost.y += 100;
+					mGhost.y -= 100;
 					delayedUpdate();
 					mGhost.x -= 100;
 					delayedUpdate();
-					mGhost.y -= 100;
+					mGhost.y += 100;
 					
 					count++;
 				}

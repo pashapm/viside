@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.util.AttributeSet;
 
 public class CommandsCanvas extends ActorsCanvas {
@@ -19,6 +20,7 @@ public class CommandsCanvas extends ActorsCanvas {
 		mMaster = unit;
 	}
 	
+	@Override
 	protected List<Unit> getUnits() {
 		if (mMaster == null) {
 			return new LinkedList<Unit>();
@@ -26,5 +28,19 @@ public class CommandsCanvas extends ActorsCanvas {
 			return mMaster.mCommands;
 		}
 	}
+	
+	@Override
+	public void onDraw(Canvas canvas) {
+		if (mMaster == null) {
+			return;
+		} else {
+			for (Unit unit : mMaster.mCommands) {
+				unit.draw(canvas, mPaint);
+			}
+		}
+	}
+	
+	@Override
+	protected void setActive() {};
 
 }
