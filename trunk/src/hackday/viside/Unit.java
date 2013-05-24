@@ -1,11 +1,12 @@
 package hackday.viside;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.os.Bundle;
-import android.view.View.OnClickListener;
 
 public class Unit {
 
@@ -18,7 +19,7 @@ public class Unit {
 	protected Context mCtx;
 	public OnUnitClick mOnClick;
 	
-	public Bundle data = new Bundle();
+	public List<Unit> mCommands = new LinkedList<Unit>();
 	
 	public void setBitmap(Bitmap b) {
 		bitmap = b;

@@ -15,8 +15,8 @@ import android.view.Window;
 
 public class MainActivity extends Activity {
 
-	private OpCanvas mActors;
-	private OpCanvas mCommands;
+	private ActorsCanvas mActors;
+	private CommandsCanvas mCommands;
 	
 	
 	@Override
@@ -24,11 +24,9 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
-		mActors = (OpCanvas)findViewById(R.id.actors);
-		mCommands = (OpCanvas)findViewById(R.id.commands);
+		mActors = (ActorsCanvas)findViewById(R.id.actors);
+		mCommands = (CommandsCanvas)findViewById(R.id.commands);
 		mCommands.setBackgroundColor(Color.LTGRAY);
-		
-		OpCanvas grid = new OpCanvas(this);
 		
 //		Unit cat = new Unit();
 //		cat.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.cat));
@@ -48,7 +46,9 @@ public class MainActivity extends Activity {
 //		b2.y = 50;
 //		grid.mUnits.add(b2);
 		
-		grid.mGrid = true;
+		
+		
+		
 		
 //		LoopBlock loop = new LoopBlock(this, 10);
 //		loop.x = 150;
@@ -107,6 +107,13 @@ public class MainActivity extends Activity {
 		mButton2.x = 10;
 		mButton2.y = 160;
 		UnitsManager.getInstance().mUnits.add(mButton2);
+		
+		
+		
+		SendMessageBlock send = new SendMessageBlock(this, getString(R.string.start));
+		send.x = 150;
+		send.y = 50;
+		mButton1.mCommands.add(send);
 	}
 	
 }

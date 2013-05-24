@@ -15,7 +15,7 @@ public class ActionActivity extends Activity {
 	Unit mButton1;
 	Unit mButton2;
 	
-	OpCanvas mGrid; 
+	ActorsCanvas mGrid; 
 	
 	Thread mGhostThread;
 	
@@ -24,7 +24,7 @@ public class ActionActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		mGrid = new OpCanvas(this);
+		mGrid = new ActorsCanvas(this);
 		mGrid.mUseHandlers = true;
 		setContentView(mGrid);
 		

@@ -5,18 +5,18 @@
     android:orientation="horizontal"
     tools:context=".MainActivity" >
 
-    <hackday.viside.OpCanvas
+    <hackday.viside.ActorsCanvas
         android:id="@+id/actors"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_weight="1" >
-    </hackday.viside.OpCanvas>
+    </hackday.viside.ActorsCanvas>
 
-    <hackday.viside.OpCanvas
+    <hackday.viside.CommandsCanvas
         android:id="@+id/commands"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_weight="1" >
-    </hackday.viside.OpCanvas>
+    </hackday.viside.CommandsCanvas>
 
 </LinearLayout>
