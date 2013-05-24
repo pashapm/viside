@@ -56,6 +56,10 @@ public class OpCanvas extends ImageView {
 		int[] sceneTouch = new int[] {(int) event.getX(), (int) event.getY()};
 		
 		if (mUseHandlers) { 
+			if (event.getAction() != MotionEvent.ACTION_DOWN) {
+				return true;
+			}
+			
 			if (handleTouchDown(sceneTouch)) {
 				mActiveUnit.onClick();
 			} 
