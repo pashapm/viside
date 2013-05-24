@@ -83,8 +83,8 @@ public class ActionActivity extends Activity {
 
 			@Override
 			public void run() {
-
-				while (!Thread.interrupted()) {
+				int count = 0;
+				while (!Thread.interrupted() || count < 10) {
 					delayedUpdate();
 					mGhost.x += 100;
 					delayedUpdate();
@@ -93,8 +93,9 @@ public class ActionActivity extends Activity {
 					mGhost.x -= 100;
 					delayedUpdate();
 					mGhost.y -= 100;
+					
+					count++;
 				}
-
 			}
 
 			void delayedUpdate() {
