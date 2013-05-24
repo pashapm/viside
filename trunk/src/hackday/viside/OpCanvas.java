@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
@@ -13,7 +14,6 @@ import android.widget.ImageView;
 
 public class OpCanvas extends ImageView {
 
-	List<Unit> mUnits = new LinkedList<Unit>();
 	private Paint mPaint = new Paint();
 	private Unit mActiveUnit;
 	
@@ -26,7 +26,6 @@ public class OpCanvas extends ImageView {
 	private int mGridSize = 60;
 	
 	
-
 	public OpCanvas(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		init();
@@ -45,7 +44,7 @@ public class OpCanvas extends ImageView {
 	@Override
 	public void onDraw(Canvas canvas) {
 		
-		for (Unit unit : mUnits) {
+		for (Unit unit : UnitsManager.getInstance().mUnits) {
 			unit.draw(canvas, mPaint);
 		}
 
@@ -88,8 +87,8 @@ public class OpCanvas extends ImageView {
 	}
 	
 	private boolean handleTouchDown(int[] sceneTouch) {
-		for (int i=mUnits.size()-1; i>=0; --i) {
-			Unit unit = mUnits.get(i);
+		for (int i = UnitsManager.getInstance().mUnits.size()-1; i>=0; --i) {
+			Unit unit = UnitsManager.getInstance().mUnits.get(i);
 			if (unit.isPointInside(sceneTouch[0], sceneTouch[1])) {
 				mActiveUnit = unit;
 				return true;
