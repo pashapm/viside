@@ -5,8 +5,8 @@ import hackday.viside.blocks.MoveBlock;
 import hackday.viside.blocks.PauseBlock;
 import hackday.viside.blocks.ReceiveMessageBlock;
 import hackday.viside.blocks.RotateBlock;
+import hackday.viside.blocks.SendMessageBlock;
 import android.app.Activity;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 public class MainActivity extends Activity {
@@ -62,6 +62,11 @@ public class MainActivity extends Activity {
 		receive.x = 150;
 		receive.y = 50;
 		grid.mUnits.add(receive);
+		
+		SendMessageBlock send = new SendMessageBlock(this, getString(R.string.start));
+		send.x = 150;
+		send.y = 50;
+		grid.mUnits.add(send);
 		
 		setContentView(grid);	
 	}

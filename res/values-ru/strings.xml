@@ -8,4 +8,9 @@
     <string name="moveTo">Вперёд на</string>
     <string name="start">СТАРТ</string>
 
+    <string name="rotate">Вращать</string>
+    <string name="move">Двигать</string>
+    <string name="loop">Повторить</string>
+    <string name="pause">Пауза</string>
+    
 </resources>
