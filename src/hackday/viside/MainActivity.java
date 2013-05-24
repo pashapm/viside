@@ -1,11 +1,5 @@
 package hackday.viside;
 
-import hackday.viside.Unit.OnUnitClick;
-import hackday.viside.blocks.LoopBlock;
-import hackday.viside.blocks.MoveBlock;
-import hackday.viside.blocks.PauseBlock;
-import hackday.viside.blocks.ReceiveMessageBlock;
-import hackday.viside.blocks.RotateBlock;
 import hackday.viside.blocks.SendMessageBlock;
 import android.app.Activity;
 import android.graphics.BitmapFactory;
@@ -88,25 +82,25 @@ public class MainActivity extends Activity {
 		mPackman.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.pacman));
 		mPackman.x = 10;
 		mPackman.y = 310;
-		UnitsManager.getInstance().mUnits.add(mPackman);
+		mActors.mUnits.add(mPackman);
 		
 		Unit mGhost = new Unit();
 		mGhost.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ghost));
 		mGhost.x = 10;
 		mGhost.y = 460;
-		UnitsManager.getInstance().mUnits.add(mGhost);
+		mActors.mUnits.add(mGhost);
 		
 		Unit mButton1 = new Unit();
 		mButton1.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.button));
 		mButton1.x = 10;
 		mButton1.y = 10;
-		UnitsManager.getInstance().mUnits.add(mButton1);
+		mActors.mUnits.add(mButton1);
 		
 		Unit mButton2 = new Unit();
 		mButton2.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.button));
 		mButton2.x = 10;
 		mButton2.y = 160;
-		UnitsManager.getInstance().mUnits.add(mButton2);
+		mActors.mUnits.add(mButton2);
 		
 		
 		
@@ -116,4 +110,13 @@ public class MainActivity extends Activity {
 		mButton1.mCommands.add(send);
 	}
 	
+	public void setActiveActor(Unit master) {
+		mActors.mActiveUnit = master;
+		mCommands.setMasterActor(master);
+		mCommands.invalidate();
+	}
+	
+	public Unit getActiveActor() {
+		return mActors.mActiveUnit;
+	}
 }

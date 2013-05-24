@@ -1,5 +1,6 @@
 package hackday.viside;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import android.content.Context;
@@ -12,8 +13,8 @@ import android.widget.ImageView;
 
 public class ActorsCanvas extends ImageView {
 
-	private Paint mPaint = new Paint();
-	private Unit mActiveUnit;
+	protected Paint mPaint = new Paint();
+	public Unit mActiveUnit;
 	
 	private int mLastX = -1;
 	private int mLastY = -1;
@@ -23,6 +24,7 @@ public class ActorsCanvas extends ImageView {
 	
 	private int mGridSize = 60;
 	
+	public List<Unit> mUnits = new LinkedList<Unit>();
 	
 	public ActorsCanvas(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -67,6 +69,7 @@ public class ActorsCanvas extends ImageView {
 		case MotionEvent.ACTION_DOWN:
 			mActiveUnit = null;
 			handleTouchDown(sceneTouch);
+			setActive();
 			break;
 		case MotionEvent.ACTION_MOVE:
 			if (mActiveUnit != null) {
@@ -80,6 +83,10 @@ public class ActorsCanvas extends ImageView {
 
 		invalidate();
 		return true;
+	}
+	
+	protected void setActive() {
+		((MainActivity)getContext()).setActiveActor(mActiveUnit);
 	}
 	
 	private boolean handleTouchDown(int[] sceneTouch) {
@@ -104,7 +111,7 @@ public class ActorsCanvas extends ImageView {
 	}
 	
 	protected List<Unit> getUnits() {
-		return UnitsManager.getInstance().mUnits;
+		return mUnits;
 	}
 
 }
