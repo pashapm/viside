@@ -11,10 +11,10 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		SnapGrid grid = new SnapGrid(this);
+		OpCanvas grid = new OpCanvas(this);
 		
 		Unit unit1 = new Unit();
-		unit1.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher));
+		unit1.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.cat));
 		unit1.x = 100;
 		unit1.y = 200;
 		grid.mUnits.add(unit1);
