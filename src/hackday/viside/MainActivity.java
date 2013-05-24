@@ -1,5 +1,10 @@
 package hackday.viside;
 
+import hackday.viside.blocks.LoopBlock;
+import hackday.viside.blocks.MoveBlock;
+import hackday.viside.blocks.PauseBlock;
+import hackday.viside.blocks.ReceiveMessageBlock;
+import hackday.viside.blocks.RotateBlock;
 import android.app.Activity;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -33,24 +38,30 @@ public class MainActivity extends Activity {
 		
 		grid.grid = true;
 		
-		Unit yellow = new Unit();
-		yellow.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.yellow));
-		yellow.x = 150;
-		yellow.y = 50;
-		grid.mUnits.add(yellow);
+		LoopBlock loop = new LoopBlock(this, 10);
+		loop.x = 150;
+		loop.y = 50;
+		grid.mUnits.add(loop);
 		
+		MoveBlock move = new MoveBlock(this, 20);
+		move.x = 150;
+		move.y = 50;
+		grid.mUnits.add(move);
 		
-		Unit blue = new Unit();
-		blue.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.move));
-		blue.x = 150;
-		blue.y = 50;
-		grid.mUnits.add(blue);
+		RotateBlock rotate = new RotateBlock(this, 90);
+		rotate.x = 150;
+		rotate.y = 50;
+		grid.mUnits.add(rotate);
 		
-		Unit green = new Unit();
-		green.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.time));
-		green.x = 150;
-		green.y = 50;
-		grid.mUnits.add(green);
+		PauseBlock pause = new PauseBlock(this, 500);
+		pause.x = 150;
+		pause.y = 50;
+		grid.mUnits.add(pause);
+		
+		ReceiveMessageBlock receive = new ReceiveMessageBlock(this, "бвРав");
+		receive.x = 150;
+		receive.y = 50;
+		grid.mUnits.add(receive);
 		
 		setContentView(grid);	
 	}
