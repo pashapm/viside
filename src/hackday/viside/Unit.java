@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.view.View.OnClickListener;
 
 public class Unit {
 
@@ -15,6 +16,7 @@ public class Unit {
 	public int height;
 	
 	protected Context mCtx;
+	public OnUnitClick mOnClick;
 	
 	public Bundle data = new Bundle();
 	
@@ -30,5 +32,15 @@ public class Unit {
 	
 	public void draw(Canvas canvas, Paint paint) {
 		canvas.drawBitmap(bitmap, x, y, paint);
+	}
+
+	public void onClick() {	
+		if (mOnClick != null) {
+			mOnClick.onClick();
+		}
 	};
+	
+	static interface OnUnitClick {
+		void onClick();
+	}
 }

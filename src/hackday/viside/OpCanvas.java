@@ -20,8 +20,12 @@ public class OpCanvas extends ImageView {
 	private int mLastX = -1;
 	private int mLastY = -1;
 	
-	boolean grid = false;
+	boolean mGrid = false;
+	boolean mUseHandlers = false;
+	
 	private int mGridSize = 60;
+	
+	
 
 	public OpCanvas(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -50,6 +54,16 @@ public class OpCanvas extends ImageView {
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		int[] sceneTouch = new int[] {(int) event.getX(), (int) event.getY()};
+		
+		if (mUseHandlers) { 
+			if (handleTouchDown(sceneTouch)) {
+				mActiveUnit.onClick();
+			} 
+			invalidate();
+			return true;
+		}
+		
+		
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN:
 			mActiveUnit = null;
@@ -69,18 +83,19 @@ public class OpCanvas extends ImageView {
 		return true;
 	}
 	
-	private void handleTouchDown(int[] sceneTouch) {
+	private boolean handleTouchDown(int[] sceneTouch) {
 		for (int i=mUnits.size()-1; i>=0; --i) {
 			Unit unit = mUnits.get(i);
 			if (unit.isPointInside(sceneTouch[0], sceneTouch[1])) {
 				mActiveUnit = unit;
-				break;
+				return true;
 			}
 		}
+		return false;
 	}
 
 	public void moveUnit(Unit unit, int tox, int toy) {
-		if (grid) {
+		if (mGrid) {
 			unit.x = tox - tox % mGridSize;
 			unit.y = toy - toy % mGridSize;
 		} else {
