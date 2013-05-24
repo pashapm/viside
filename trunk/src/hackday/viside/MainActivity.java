@@ -36,7 +36,7 @@ public class MainActivity extends Activity {
 //		b2.y = 50;
 //		grid.mUnits.add(b2);
 		
-		grid.grid = true;
+		grid.mGrid = true;
 		
 		LoopBlock loop = new LoopBlock(this, 10);
 		loop.x = 150;
