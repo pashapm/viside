@@ -1,18 +1,16 @@
 package hackday.viside;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ImageView;
 
-public class OpCanvas extends ImageView {
+public class ActorsCanvas extends ImageView {
 
 	private Paint mPaint = new Paint();
 	private Unit mActiveUnit;
@@ -26,12 +24,12 @@ public class OpCanvas extends ImageView {
 	private int mGridSize = 60;
 	
 	
-	public OpCanvas(Context context, AttributeSet attrs) {
+	public ActorsCanvas(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		init();
 	}
 
-	public OpCanvas(Context context) {
+	public ActorsCanvas(Context context) {
 		super(context);
 		init();
 	}
@@ -43,11 +41,9 @@ public class OpCanvas extends ImageView {
 
 	@Override
 	public void onDraw(Canvas canvas) {
-		
-		for (Unit unit : UnitsManager.getInstance().mUnits) {
+		for (Unit unit : getUnits()) {
 			unit.draw(canvas, mPaint);
 		}
-
 	}
 
 	@Override
@@ -87,8 +83,8 @@ public class OpCanvas extends ImageView {
 	}
 	
 	private boolean handleTouchDown(int[] sceneTouch) {
-		for (int i = UnitsManager.getInstance().mUnits.size()-1; i>=0; --i) {
-			Unit unit = UnitsManager.getInstance().mUnits.get(i);
+		for (int i = getUnits().size()-1; i>=0; --i) {
+			Unit unit = getUnits().get(i);
 			if (unit.isPointInside(sceneTouch[0], sceneTouch[1])) {
 				mActiveUnit = unit;
 				return true;
@@ -105,6 +101,10 @@ public class OpCanvas extends ImageView {
 			unit.x = tox;
 			unit.y = toy;
 		}
+	}
+	
+	protected List<Unit> getUnits() {
+		return UnitsManager.getInstance().mUnits;
 	}
 
 }
