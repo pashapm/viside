@@ -110,15 +110,15 @@ public class MainActivity extends Activity {
 //		mActors.mUnits.add(mGhost);
 		
 		Unit mButton1 = new Unit();
-		mButton1.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.button));
+		mButton1.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.game_btn_play));
 		mButton1.x = 10;
-		mButton1.y = 10;
+		mButton1.y = 400;
 		mActors.mUnits.add(mButton1);
 		
 		Unit mButton2 = new Unit();
-		mButton2.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.button));
+		mButton2.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.game_btn_stop));
 		mButton2.x = 160;
-		mButton2.y = 10;
+		mButton2.y = 300;
 		mActors.mUnits.add(mButton2);
 		
 		
