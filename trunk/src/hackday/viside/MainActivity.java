@@ -1,5 +1,6 @@
 package hackday.viside;
 
+import android.content.Intent;
 import android.view.View;
 import hackday.viside.blocks.SendMessageBlock;
 import android.app.Activity;
@@ -14,6 +15,7 @@ public class MainActivity extends Activity {
 	private ActorsCanvas mActors;
 	private CommandsCanvas mCommands;
 	private View mBlocksFrag;
+	private View mStartBtn;
 
 	
 	@Override
@@ -28,7 +30,17 @@ public class MainActivity extends Activity {
 
         mBlocksFrag = (View)findViewById(R.id.blockListFrag);
         mBlocksFrag.setVisibility(View.GONE);
-		
+
+        mStartBtn = (View)findViewById(R.id.startButton);
+        mStartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ActionActivity.class);
+                //intent.putExtra(ActionActivity.EXTRA_URL, link);
+                startActivity(intent);
+            }
+        });
+
 //		Unit cat = new Unit();
 //		cat.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.cat));
 //		cat.x = 200;
