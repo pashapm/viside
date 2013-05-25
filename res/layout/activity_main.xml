@@ -1,29 +1,37 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal"
-    tools:context=".MainActivity" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+        >
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            tools:context=".MainActivity" >
 
-    <hackday.viside.ActorsCanvas
-        android:id="@+id/actors"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1" >
-    </hackday.viside.ActorsCanvas>
+        <hackday.viside.ActorsCanvas
+                android:id="@+id/actors"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" >
+        </hackday.viside.ActorsCanvas>
 
-    <hackday.viside.CommandsCanvas
-        android:id="@+id/commands"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1" >
-    </hackday.viside.CommandsCanvas>
+        <hackday.viside.CommandsCanvas
+                android:id="@+id/commands"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#cccccc"
+                android:layout_weight="0.5" >
+        </hackday.viside.CommandsCanvas>
+
+    </LinearLayout>
 
     <fragment
             android:id="@+id/blockListFrag"
             android:name="hackday.viside.fragments.BlockListFragment"
             android:layout_width="200dp"
+            android:layout_alignParentRight="true"
             android:layout_height="match_parent">
     </fragment>
 
-</LinearLayout>
+</RelativeLayout>
