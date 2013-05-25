@@ -87,7 +87,9 @@ public class ActionActivity extends Activity {
 	
 	@Override
 	protected void onDestroy() {
-		mAnimatingThread.interrupt();
+		if (mAnimatingThread != null) {
+			mAnimatingThread.interrupt();
+		}
 		super.onDestroy();
 	}
 	
