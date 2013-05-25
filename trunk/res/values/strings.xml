@@ -11,6 +11,15 @@
     <string name="move">Move</string>
     <string name="loop">Loop</string>
     <string name="pause">Pause</string>
-    <string name="block_list_title">Block list</string>
+    <string name="block_list_title">Commands list</string>
+    <string name="_times">times</string>
+    <string name="run_loop">Loop</string>
+    <string name="ms">ms</string>
+    <string name="pause_">Pause</string>
+    <string name="receive">Receive</string>
+    <string name="rotate_to">Rotate</string>
+    <string name="send">Send</string>
+    <string name="receive_msg">Receive message</string>
+    <string name="send_msg">Send message</string>
 
 </resources>

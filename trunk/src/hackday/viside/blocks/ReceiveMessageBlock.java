@@ -22,7 +22,7 @@ public class ReceiveMessageBlock extends Unit {
 		super.draw(canvas, paint);
 		
 		paint.setTextSize(24);
-		canvas.drawText("Принять: " + mMessage, x + 20, y + height - 20, paint);
+		canvas.drawText(mCtx.getString(R.string.receive) + ": " + mMessage, x + 20, y + height - 20, paint);
 	}
 	
 }
