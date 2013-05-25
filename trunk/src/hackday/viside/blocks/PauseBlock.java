@@ -22,6 +22,6 @@ public class PauseBlock extends Unit {
 		super.draw(canvas, paint);
 		
 		paint.setTextSize(24);
-		canvas.drawText(mCtx.getString(R.string.pause_) + ": " + mPause + mCtx.getString(R.string.ms), x + 120, y + height - 30, paint);
+		canvas.drawText(mCtx.getString(R.string.pause_) + ": " + mPause + " " + mCtx.getString(R.string.ms), x + 120, y + height - 30, paint);
 	}
 }

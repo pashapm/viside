@@ -22,6 +22,6 @@ public class RotateBlock extends Unit {
 		super.draw(canvas, paint);
 		
 		paint.setTextSize(24);
-		canvas.drawText(mCtx.getString(R.string.rotate_to) + " " + mRotate, x + 120, y + height - 30, paint);
+		canvas.drawText(mCtx.getString(R.string.rotate_to) + " " + mRotate, x + 110, y + height - 30, paint);
 	}
 }
