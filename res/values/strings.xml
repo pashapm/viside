@@ -11,5 +11,6 @@
     <string name="move">Move</string>
     <string name="loop">Loop</string>
     <string name="pause">Pause</string>
+    <string name="block_list_title">Block list</string>
 
 </resources>
