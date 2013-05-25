@@ -7,18 +7,11 @@
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Title1">
+            android:text="@string/block_list_title">
     </TextView>
     <ListView
             android:id="@id/android:list"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
     </ListView>
-    <TextView
-            android:id="@id/android:empty"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Footer">
-    </TextView>
 </LinearLayout>
