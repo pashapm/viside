@@ -19,4 +19,18 @@
         android:layout_weight="1" >
     </hackday.viside.CommandsCanvas>
 
+    <fragment
+            android:id="@+id/blockListFrag"
+            android:name="hackday.viside.fragments.BlockListFragment"
+            android:layout_width="200dp"
+            android:layout_height="match_parent">
+    </fragment>
+
+    <!--<FrameLayout
+            android:id="@+id/blockListCont"
+            android:background="#999999"
+            android:layout_width="200dp"
+            android:layout_height="match_parent">
+    </FrameLayout>-->
+
 </LinearLayout>
