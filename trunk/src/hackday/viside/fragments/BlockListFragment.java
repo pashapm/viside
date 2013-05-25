@@ -56,8 +56,7 @@ public class BlockListFragment extends ListFragment
             	BlockThumb thumb = (BlockThumb) getListView().getAdapter().getItem(info.position);
             	if (thumb.type == TYPE.RECEIVE || thumb.type == TYPE.SEND) {
             		menu.add(0, 1, 0, "START");
-                    menu.add(0, 2, 1, "LEFT");
-                    menu.add(0, 3, 3, "RIGHT");
+                    menu.add(0, 2, 1, "STOP");
             	}
             }
         });
@@ -112,10 +111,7 @@ public class BlockListFragment extends ListFragment
                 msg = "START";
                 break;
             case 2:
-                msg = "LEFT";
-                break;
-            case 3:
-                msg = "RIGHT";
+                msg = "STOP";
                 break;
         }
 
