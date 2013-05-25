@@ -1,17 +1,20 @@
 package hackday.viside;
 
+import android.view.View;
 import hackday.viside.blocks.SendMessageBlock;
 import android.app.Activity;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Window;
+import hackday.viside.fragments.BlockListFragment;
 
 public class MainActivity extends Activity {
 
 	private ActorsCanvas mActors;
 	private CommandsCanvas mCommands;
-	
+	private View mBlocksFrag;
+
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +24,9 @@ public class MainActivity extends Activity {
 		mActors = (ActorsCanvas)findViewById(R.id.actors);
 		mCommands = (CommandsCanvas)findViewById(R.id.commands);
 		mCommands.setBackgroundColor(Color.LTGRAY);
+
+        mBlocksFrag = (View)findViewById(R.id.blockListFrag);
+        mBlocksFrag.setVisibility(View.GONE);
 		
 //		Unit cat = new Unit();
 //		cat.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.cat));
@@ -114,6 +120,9 @@ public class MainActivity extends Activity {
 		mActors.mActiveUnit = master;
 		mCommands.setMasterActor(master);
 		mCommands.invalidate();
+
+        mBlocksFrag.setVisibility( (master == null) ? View.GONE
+                                                    : View.VISIBLE );
 	}
 	
 	public Unit getActiveActor() {
