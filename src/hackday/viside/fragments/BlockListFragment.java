@@ -1,21 +1,31 @@
 package hackday.viside.fragments;
 
-import android.view.*;
-import android.widget.AdapterView;
+import hackday.viside.MainActivity;
+import hackday.viside.R;
+import hackday.viside.Unit;
+import hackday.viside.blocks.LoopBlock;
+import hackday.viside.blocks.MoveBlock;
+import hackday.viside.blocks.PauseBlock;
 import hackday.viside.blocks.ReceiveMessageBlock;
+import hackday.viside.blocks.RotateBlock;
 import hackday.viside.blocks.SendMessageBlock;
 import hackday.viside.fragments.BlockListFragment.BlockThumb.TYPE;
-import android.app.ListFragment;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import hackday.viside.BlocksList;
-import hackday.viside.R;
 
 import java.util.LinkedList;
 import java.util.List;
+
+import android.app.ListFragment;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 /**
  * Created with IntelliJ IDEA.
@@ -42,11 +52,47 @@ public class BlockListFragment extends ListFragment
             @Override
             public void onCreateContextMenu(ContextMenu menu, View v,
                                             ContextMenu.ContextMenuInfo menuInfo) {
-                menu.add(0, 1, 0, "START");
-                menu.add(0, 2, 1, "LEFT");
-                menu.add(0, 3, 3, "RIGHT");
+            	AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+            	BlockThumb thumb = (BlockThumb) getListView().getAdapter().getItem(info.position);
+            	if (thumb.type == TYPE.RECEIVE || thumb.type == TYPE.SEND) {
+            		menu.add(0, 1, 0, "START");
+                    menu.add(0, 2, 1, "LEFT");
+                    menu.add(0, 3, 3, "RIGHT");
+            	}
             }
         });
+        
+		getListView().setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				BlockThumb thumb = (BlockThumb) arg0.getItemAtPosition(arg2);
+				MainActivity host = (MainActivity) getActivity();
+				switch (thumb.type) {
+				case LOOP:
+					LoopBlock loop = new LoopBlock(getActivity(), 10);
+					host.addCommandToMaster(loop);
+					break;
+				case PAUSE:
+					PauseBlock p = new PauseBlock(getActivity(), 500);
+					host.addCommandToMaster(p);
+					break;
+				case MOVE:
+					MoveBlock m = new MoveBlock(getActivity(), 20);
+					host.addCommandToMaster(m);
+					break;
+				case ROTATE:
+					RotateBlock r = new RotateBlock(getActivity(), 90);
+					host.addCommandToMaster(r);
+					break;
+
+				default:
+					break;
+				}
+				
+			}
+		});
     }
 
     @Override
@@ -73,10 +119,13 @@ public class BlockListFragment extends ListFragment
                 break;
         }
 
+        MainActivity host = (MainActivity) getActivity();
         if (thumb.type == TYPE.RECEIVE) {
             ReceiveMessageBlock rec = new ReceiveMessageBlock(getActivity(), msg);
+            host.addCommandToMaster(rec);
         } else if (thumb.type == TYPE.SEND) {
             SendMessageBlock send = new SendMessageBlock(getActivity(), msg);
+            host.addCommandToMaster(send);
         }
 
         return false;

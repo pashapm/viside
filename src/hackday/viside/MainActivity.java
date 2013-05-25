@@ -20,6 +20,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		ScrProps.initialize(this);
 		setContentView(R.layout.activity_main);
 		mActors = (ActorsCanvas)findViewById(R.id.actors);
 		mCommands = (CommandsCanvas)findViewById(R.id.commands);
@@ -90,11 +91,11 @@ public class MainActivity extends Activity {
 		mPackman.y = 310;
 		mActors.mUnits.add(mPackman);
 		
-		Unit mGhost = new Unit();
-		mGhost.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ghost));
-		mGhost.x = 10;
-		mGhost.y = 460;
-		mActors.mUnits.add(mGhost);
+//		Unit mGhost = new Unit();
+//		mGhost.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ghost));
+//		mGhost.x = 10;
+//		mGhost.y = 460;
+//		mActors.mUnits.add(mGhost);
 		
 		Unit mButton1 = new Unit();
 		mButton1.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.button));
@@ -102,18 +103,18 @@ public class MainActivity extends Activity {
 		mButton1.y = 10;
 		mActors.mUnits.add(mButton1);
 		
-		Unit mButton2 = new Unit();
-		mButton2.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.button));
-		mButton2.x = 10;
-		mButton2.y = 160;
-		mActors.mUnits.add(mButton2);
+//		Unit mButton2 = new Unit();
+//		mButton2.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.button));
+//		mButton2.x = 10;
+//		mButton2.y = 160;
+//		mActors.mUnits.add(mButton2);
 		
 		
 		
-		SendMessageBlock send = new SendMessageBlock(this, getString(R.string.start));
-		send.x = 150;
-		send.y = 50;
-		mButton1.mCommands.add(send);
+//		SendMessageBlock send = new SendMessageBlock(this, getString(R.string.start));
+//		send.x = 150;
+//		send.y = 50;
+//		mButton1.mCommands.add(send);
 	}
 	
 	public void setActiveActor(Unit master) {
@@ -127,5 +128,14 @@ public class MainActivity extends Activity {
 	
 	public Unit getActiveActor() {
 		return mActors.mActiveUnit;
+	}
+	
+	public void addCommandToMaster(Unit command) {
+		if (mActors.mActiveUnit == null) {
+			return;
+		}
+		
+		mActors.mActiveUnit.mCommands.add(command);
+		mCommands.invalidate();
 	}
 }
