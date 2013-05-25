@@ -19,6 +19,7 @@ public class ActionActivity extends Activity {
 	ActorsCanvas mGrid; 
 	
 	Thread mAnimatingThread;
+	Handler mHandler;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,10 @@ public class ActionActivity extends Activity {
 			
 			@Override
 			public void onClick() {
+				if (mAnimatingThread != null) {
+					mAnimatingThread.interrupt();
+				}
+				mAnimatingThread = new AnimatingThread();
 				mAnimatingThread.start();
 			}
 		};
@@ -69,7 +74,7 @@ public class ActionActivity extends Activity {
 		};
 		mGrid.mUnits.add(mButton2);
 		
-		final Handler han = new Handler(new Callback() {
+		mHandler = new Handler(new Callback() {
 			
 			@Override
 			public boolean handleMessage(Message msg) {
@@ -81,6 +86,25 @@ public class ActionActivity extends Activity {
 
 			@Override
 			public void run() {
+				
+			}
+
+			
+		});
+		
+	}
+	
+	@Override
+	protected void onDestroy() {
+		mAnimatingThread.interrupt();
+		super.onDestroy();
+	}
+	
+	class AnimatingThread extends Thread {
+		
+		@Override
+		public void run() {
+			try {
 				int count = 0;
 				while (!Thread.interrupted() && count < 10) {
 					delayedUpdate();
@@ -93,25 +117,16 @@ public class ActionActivity extends Activity {
 					mPackman.y += 100;
 					
 					count++;
-				}
+				} 
+			} catch (InterruptedException e) {
+				return;
 			}
-
-			void delayedUpdate() {
-				try {
-					han.obtainMessage().sendToTarget();
-					Thread.sleep(500);
-					han.obtainMessage().sendToTarget();
-				} catch (Exception e) {
-					return;
-				}
-			}
-		});
+		}
 		
-	}
-	
-	@Override
-	protected void onDestroy() {
-		mAnimatingThread.interrupt();
-		super.onDestroy();
+		void delayedUpdate() throws InterruptedException {
+			mHandler.obtainMessage().sendToTarget();
+			Thread.sleep(500);
+			mHandler.obtainMessage().sendToTarget();
+		}
 	}
 }
