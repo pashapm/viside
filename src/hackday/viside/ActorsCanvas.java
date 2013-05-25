@@ -20,6 +20,9 @@ public class ActorsCanvas extends ImageView {
 	private int mLastX = -1;
 	private int mLastY = -1;
 	
+	private int mOffsetX = 0;
+	private int mOffsetY = 0;
+	
 	boolean mGrid = false;
 	boolean mUseHandlers = false;
 	
@@ -85,11 +88,13 @@ public class ActorsCanvas extends ImageView {
 			break;
 		case MotionEvent.ACTION_MOVE:
 			if (mActiveUnit != null) {
-				moveUnit(mActiveUnit, sceneTouch[0], sceneTouch[1]);
+				moveUnit(mActiveUnit, sceneTouch[0] - mOffsetX, sceneTouch[1] - mOffsetY);
 			}
 			break;
 		case MotionEvent.ACTION_UP:
 			setActive();
+			mOffsetX = 0;
+			mOffsetY = 0;
 			break;
 		}
 
@@ -106,6 +111,8 @@ public class ActorsCanvas extends ImageView {
 			Unit unit = getUnits().get(i);
 			if (unit.isPointInside(sceneTouch[0], sceneTouch[1])) {
 				mActiveUnit = unit;
+				mOffsetX = sceneTouch[0] - unit.x;
+				mOffsetY = sceneTouch[1] - unit.y;
 				return true;
 			}
 		}
