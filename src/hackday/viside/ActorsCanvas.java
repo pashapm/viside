@@ -26,7 +26,7 @@ public class ActorsCanvas extends ImageView {
 	boolean mGrid = false;
 	boolean mUseHandlers = false;
 	
-	private int mGridSize = 60;
+	private int mGridSize = 10;
 	
 	public List<Unit> mUnits = new LinkedList<Unit>();
 	

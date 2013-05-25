@@ -44,7 +44,7 @@ public class ActionActivity extends Activity {
 		mGrid.mUnits.add(mPackman);
 		
 		mButton1 = new Unit();
-		mButton1.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.button));
+		mButton1.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.game_btn_play));
 		mButton1.x = 10;
 		mButton1.y = 10;
 		mButton1.mOnClick = new OnUnitClick() {
@@ -61,7 +61,7 @@ public class ActionActivity extends Activity {
 		mGrid.mUnits.add(mButton1);
 		
 		mButton2 = new Unit();
-		mButton2.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.button));
+		mButton2.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.game_btn_stop));
 		mButton2.x = 160;
 		mButton2.y = 10;
 		mButton2.mOnClick = new OnUnitClick() {
