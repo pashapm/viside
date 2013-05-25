@@ -21,10 +21,19 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="#cccccc"
-                android:layout_weight="0.5" >
+                android:layout_weight="0.56" >
         </hackday.viside.CommandsCanvas>
 
     </LinearLayout>
+
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:id="@+id/startButton"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/btn_start"
+            android:contentDescription="Start Button"/>
 
     <fragment
             android:id="@+id/blockListFrag"
