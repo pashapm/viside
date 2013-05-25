@@ -162,8 +162,8 @@ public class BlockListFragment extends ListFragment
         mList.add(receive);
         mList.add(send);
         mList.add(loop);
-        mList.add(rotate);
         mList.add(move);
+        mList.add(rotate);
         mList.add(time);
     }
 
