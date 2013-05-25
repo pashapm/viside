@@ -11,12 +11,12 @@
     <string name="rotate">Вращать</string>
     <string name="move">Двигать</string>
     <string name="loop">Повторить</string>
-    <string name="pause">Пауза</string>
+    <string name="pause">Ждать</string>
     <string name="block_list_title">Список блоков</string>
     <string name="_times">раз</string>
     <string name="run_loop">Повторить</string>
     <string name="ms">мс</string>
-    <string name="pause_">Пауза</string>
+    <string name="pause_">Ждать</string>
     <string name="receive">Принять</string>
     <string name="rotate_to">Вращать на</string>
     <string name="send">Послать</string>
