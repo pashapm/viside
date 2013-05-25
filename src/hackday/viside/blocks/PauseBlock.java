@@ -13,7 +13,7 @@ public class PauseBlock extends Unit {
 	
 	public PauseBlock(Context ctx, long pause) {
 		mCtx = ctx;
-		setBitmap(BitmapFactory.decodeResource(mCtx.getResources(), R.drawable.time2));
+		setBitmap(BitmapFactory.decodeResource(mCtx.getResources(), R.drawable.time));
 		mPause = pause;
 	}
 	

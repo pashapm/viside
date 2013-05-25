@@ -99,8 +99,8 @@ public class MainActivity extends Activity {
 	void addActors() {
 		Unit mPackman = new Unit();
 		mPackman.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.pacman));
-		mPackman.x = 310;
-		mPackman.y = 10;
+		mPackman.x = 10;
+		mPackman.y = 160;
 		mActors.mUnits.add(mPackman);
 		
 //		Unit mGhost = new Unit();
@@ -112,13 +112,13 @@ public class MainActivity extends Activity {
 		Unit mButton1 = new Unit();
 		mButton1.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.game_btn_play));
 		mButton1.x = 10;
-		mButton1.y = 400;
+		mButton1.y = 10;
 		mActors.mUnits.add(mButton1);
 		
 		Unit mButton2 = new Unit();
 		mButton2.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.game_btn_stop));
 		mButton2.x = 160;
-		mButton2.y = 300;
+		mButton2.y = 10;
 		mActors.mUnits.add(mButton2);
 		
 		
