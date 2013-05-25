@@ -13,7 +13,7 @@ public class MoveBlock extends Unit {
 	
 	public MoveBlock(Context ctx, int move) {
 		mCtx = ctx;
-		setBitmap(BitmapFactory.decodeResource(mCtx.getResources(), R.drawable.move2));
+		setBitmap(BitmapFactory.decodeResource(mCtx.getResources(), R.drawable.move));
 		mMove = move;
 	}
 	

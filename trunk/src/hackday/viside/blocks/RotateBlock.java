@@ -13,7 +13,7 @@ public class RotateBlock extends Unit {
 	
 	public RotateBlock(Context ctx, int rotate) {
 		mCtx = ctx;
-		setBitmap(BitmapFactory.decodeResource(mCtx.getResources(), R.drawable.rotate2));
+		setBitmap(BitmapFactory.decodeResource(mCtx.getResources(), R.drawable.rotate));
 		mRotate = rotate;
 	}
 	
