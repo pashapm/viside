@@ -24,6 +24,7 @@ public class ActionActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		ScrProps.initialize(this);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
 		
@@ -39,7 +40,7 @@ public class ActionActivity extends Activity {
 		mPackman = new Unit();
 		mPackman.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.pacman));
 		mPackman.x = 10;
-		mPackman.y = 310;
+		mPackman.y = ScrProps.screenHeight - 130;
 		mGrid.mUnits.add(mPackman);
 		
 		mButton1 = new Unit();
@@ -82,16 +83,6 @@ public class ActionActivity extends Activity {
 				return true;
 			}
 		});
-		mAnimatingThread = new Thread(new Runnable() {
-
-			@Override
-			public void run() {
-				
-			}
-
-			
-		});
-		
 	}
 	
 	@Override
