@@ -11,8 +11,8 @@ import android.graphics.Paint;
 public class Unit {
 
 	public Bitmap bitmap;
-	public int x;
-	public int y;
+	public int x = 100;
+	public int y = 100;
 	public int width;
 	public int height;
 	

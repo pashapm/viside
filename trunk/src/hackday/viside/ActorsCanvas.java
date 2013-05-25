@@ -77,7 +77,7 @@ public class ActorsCanvas extends ImageView {
 			}
 			break;
 		case MotionEvent.ACTION_UP:
-			mActiveUnit = null;
+			setActive();
 			break;
 		}
 
