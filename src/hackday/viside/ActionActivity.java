@@ -11,14 +11,14 @@ import android.view.Window;
 
 public class ActionActivity extends Activity {
 
-	Unit mGhost;
+//	Unit mGhost;
 	Unit mPackman;
 	Unit mButton1;
 	Unit mButton2;
 	
 	ActorsCanvas mGrid; 
 	
-	Thread mGhostThread;
+	Thread mAnimatingThread;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +41,6 @@ public class ActionActivity extends Activity {
 		mPackman.y = 310;
 		mGrid.mUnits.add(mPackman);
 		
-		mGhost = new Unit();
-		mGhost.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ghost));
-		mGhost.x = 10;
-		mGhost.y = 460;
-		mGrid.mUnits.add(mGhost);
-		
 		mButton1 = new Unit();
 		mButton1.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.button));
 		mButton1.x = 10;
@@ -55,20 +49,22 @@ public class ActionActivity extends Activity {
 			
 			@Override
 			public void onClick() {
-				mPackman.x -= 40;
+				mAnimatingThread.start();
 			}
 		};
 		mGrid.mUnits.add(mButton1);
 		
 		mButton2 = new Unit();
 		mButton2.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.button));
-		mButton2.x = 10;
-		mButton2.y = 160;
+		mButton2.x = 160;
+		mButton2.y = 10;
 		mButton2.mOnClick = new OnUnitClick() {
 			
 			@Override
 			public void onClick() {
-				mPackman.x += 40;
+				if (mAnimatingThread != null) {
+					mAnimatingThread.interrupt();
+				}
 			}
 		};
 		mGrid.mUnits.add(mButton2);
@@ -81,20 +77,20 @@ public class ActionActivity extends Activity {
 				return true;
 			}
 		});
-		mGhostThread = new Thread(new Runnable() {
+		mAnimatingThread = new Thread(new Runnable() {
 
 			@Override
 			public void run() {
 				int count = 0;
-				while (!Thread.interrupted() || count < 10) {
+				while (!Thread.interrupted() && count < 10) {
 					delayedUpdate();
-					mGhost.x += 100;
+					mPackman.x += 100;
 					delayedUpdate();
-					mGhost.y -= 100;
+					mPackman.y -= 100;
 					delayedUpdate();
-					mGhost.x -= 100;
+					mPackman.x -= 100;
 					delayedUpdate();
-					mGhost.y += 100;
+					mPackman.y += 100;
 					
 					count++;
 				}
@@ -110,12 +106,12 @@ public class ActionActivity extends Activity {
 				}
 			}
 		});
-		mGhostThread.start();
+		
 	}
 	
 	@Override
 	protected void onDestroy() {
-		mGhostThread.interrupt();
+		mAnimatingThread.interrupt();
 		super.onDestroy();
 	}
 }

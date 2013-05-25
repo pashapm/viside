@@ -87,8 +87,8 @@ public class MainActivity extends Activity {
 	void addActors() {
 		Unit mPackman = new Unit();
 		mPackman.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.pacman));
-		mPackman.x = 10;
-		mPackman.y = 310;
+		mPackman.x = 310;
+		mPackman.y = 10;
 		mActors.mUnits.add(mPackman);
 		
 //		Unit mGhost = new Unit();
@@ -103,12 +103,11 @@ public class MainActivity extends Activity {
 		mButton1.y = 10;
 		mActors.mUnits.add(mButton1);
 		
-//		Unit mButton2 = new Unit();
-//		mButton2.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.button));
-//		mButton2.x = 10;
-//		mButton2.y = 160;
-//		mActors.mUnits.add(mButton2);
-		
+		Unit mButton2 = new Unit();
+		mButton2.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.button));
+		mButton2.x = 160;
+		mButton2.y = 10;
+		mActors.mUnits.add(mButton2);
 		
 		
 //		SendMessageBlock send = new SendMessageBlock(this, getString(R.string.start));
