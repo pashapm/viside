@@ -163,12 +163,36 @@ public class BlockListFragment extends ListFragment
         loop.name = res.getString(R.string.loop);
         loop.type = TYPE.LOOP;
 
+        BlockThumb  dummy = new BlockThumb();
+                    dummy.color = Color.parseColor("#cccccc");
+                    dummy.name = "if...then...";
+                    dummy.type = TYPE.DUMMY;
+
+        BlockThumb  dummy2 = new BlockThumb();
+                    dummy2.color = Color.parseColor("#cccccc");
+                    dummy2.name = "Open...";
+                    dummy2.type = TYPE.DUMMY;
+
+        BlockThumb  dummy3 = new BlockThumb();
+                    dummy3.color = Color.parseColor("#ffd42a");
+                    dummy3.name = "Angry Bird";
+                    dummy3.type = TYPE.DUMMY;
+
+        BlockThumb  dummy4 = new BlockThumb();
+                    dummy4.color = Color.parseColor("#00d42a");
+                    dummy4.name = "Points";
+                    dummy4.type = TYPE.DUMMY;
+
         mList.add(receive);
         mList.add(send);
         mList.add(loop);
         mList.add(move);
         mList.add(rotate);
         mList.add(time);
+        mList.add(dummy);
+        mList.add(dummy2);
+        mList.add(dummy4);
+        mList.add(dummy3);
     }
 
 
@@ -212,7 +236,7 @@ public class BlockListFragment extends ListFragment
         int color;
         TYPE type;
 
-        enum TYPE {MOVE, ROTATE, PAUSE, LOOP, SEND, RECEIVE};
+        enum TYPE {MOVE, ROTATE, PAUSE, LOOP, SEND, RECEIVE, DUMMY};
     }
 
 }
