@@ -1,5 +1,6 @@
 package hackday.viside.fragments;
 
+import android.content.res.Resources;
 import hackday.viside.MainActivity;
 import hackday.viside.R;
 import hackday.viside.Unit;
@@ -63,35 +64,35 @@ public class BlockListFragment extends ListFragment
         
 		getListView().setOnItemClickListener(new OnItemClickListener() {
 
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
-				BlockThumb thumb = (BlockThumb) arg0.getItemAtPosition(arg2);
-				MainActivity host = (MainActivity) getActivity();
-				switch (thumb.type) {
-				case LOOP:
-					LoopBlock loop = new LoopBlock(getActivity(), 10);
-					host.addCommandToMaster(loop);
-					break;
-				case PAUSE:
-					PauseBlock p = new PauseBlock(getActivity(), 500);
-					host.addCommandToMaster(p);
-					break;
-				case MOVE:
-					MoveBlock m = new MoveBlock(getActivity(), 20);
-					host.addCommandToMaster(m);
-					break;
-				case ROTATE:
-					RotateBlock r = new RotateBlock(getActivity(), 90);
-					host.addCommandToMaster(r);
-					break;
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+                                    long arg3) {
+                BlockThumb thumb = (BlockThumb) arg0.getItemAtPosition(arg2);
+                MainActivity host = (MainActivity) getActivity();
+                switch (thumb.type) {
+                    case LOOP:
+                        LoopBlock loop = new LoopBlock(getActivity(), 10);
+                        host.addCommandToMaster(loop);
+                        break;
+                    case PAUSE:
+                        PauseBlock p = new PauseBlock(getActivity(), 500);
+                        host.addCommandToMaster(p);
+                        break;
+                    case MOVE:
+                        MoveBlock m = new MoveBlock(getActivity(), 20);
+                        host.addCommandToMaster(m);
+                        break;
+                    case ROTATE:
+                        RotateBlock r = new RotateBlock(getActivity(), 90);
+                        host.addCommandToMaster(r);
+                        break;
 
-				default:
-					break;
-				}
-				
-			}
-		});
+                    default:
+                        break;
+                }
+
+            }
+        });
     }
 
     @Override
@@ -128,35 +129,38 @@ public class BlockListFragment extends ListFragment
     }
 
 
-    private void populateList() {
+    private void populateList()
+    {
+        final Resources res = getActivity().getResources();
+
         BlockThumb receive = new BlockThumb();
         receive.color = Color.parseColor("#ffb264");
-        receive.name = "Получить сообщение";
+        receive.name = res.getString(R.string.receive_msg);
         receive.type = TYPE.RECEIVE;
 
         BlockThumb send = new BlockThumb();
         send.color = Color.parseColor("#ffb264");
-        send.name = "Послать сообщение";
+        send.name = res.getString(R.string.send_msg);
         send.type = TYPE.SEND;
 
         BlockThumb time = new BlockThumb();
         time.color = Color.parseColor("#85dc9a");
-        time.name = "Пауза";
+        time.name = res.getString(R.string.pause);;
         time.type = TYPE.PAUSE;
 
         BlockThumb move = new BlockThumb();
         move.color = Color.parseColor("#6491ff");
-        move.name = "Двигать";
+        move.name = res.getString(R.string.move);;
         move.type = TYPE.MOVE;
 
         BlockThumb rotate = new BlockThumb();
         rotate.color = Color.parseColor("#6491ff");
-        rotate.name = "Вращать";
+        rotate.name = res.getString(R.string.rotate);;
         rotate.type = TYPE.ROTATE;
 
         BlockThumb loop = new BlockThumb();
         loop.color = Color.parseColor("#ffb700");
-        loop.name = "Цикл";
+        loop.name = res.getString(R.string.loop);
         loop.type = TYPE.LOOP;
 
         mList.add(receive);

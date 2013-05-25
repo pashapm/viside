@@ -13,5 +13,14 @@
     <string name="loop">Повторить</string>
     <string name="pause">Пауза</string>
     <string name="block_list_title">Список блоков</string>
+    <string name="_times">раз</string>
+    <string name="run_loop">Выполнить</string>
+    <string name="ms">мс</string>
+    <string name="pause_">Пауза</string>
+    <string name="receive">Принять</string>
+    <string name="rotate_to">Вращать на</string>
+    <string name="send">Послать</string>
+    <string name="receive_msg">Получить сообщение</string>
+    <string name="send_msg">Послать сообщение</string>
 
 </resources>

@@ -22,7 +22,7 @@ public class SendMessageBlock extends Unit {
 		super.draw(canvas, paint);
 		
 		paint.setTextSize(24);
-		canvas.drawText("Послать: " + mMessage, x + 20, y + height - 20, paint);
+		canvas.drawText(mCtx.getString(R.string.send) + ": " + mMessage, x + 20, y + height - 20, paint);
 	}
 	
 }

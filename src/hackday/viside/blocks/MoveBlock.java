@@ -22,6 +22,6 @@ public class MoveBlock extends Unit {
 		super.draw(canvas, paint);
 		
 		paint.setTextSize(24);
-		canvas.drawText(mCtx.getString(R.string.moveTo)+ " " + mMove, x + 100, y + height - 30, paint);
+		canvas.drawText(mCtx.getString(R.string.moveTo)+ " " + mMove, x + 120, y + height - 30, paint);
 	}
 }

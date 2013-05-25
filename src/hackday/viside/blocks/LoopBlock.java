@@ -22,6 +22,6 @@ public class LoopBlock extends Unit {
 		super.draw(canvas, paint);
 		
 		paint.setTextSize(24);
-		canvas.drawText("Выполнить " + mLoop + " раз", x + 20, y + 40, paint);
+		canvas.drawText(mCtx.getString(R.string.run_loop) + " " + mLoop + " " + mCtx.getString(R.string._times), x + 20, y + 40, paint);
 	}
 }
