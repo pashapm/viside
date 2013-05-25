@@ -40,7 +40,7 @@ public class ActionActivity extends Activity {
 		mPackman = new Unit();
 		mPackman.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.pacman));
 		mPackman.x = 10;
-		mPackman.y = ScrProps.screenHeight - 130;
+		mPackman.y = 160;
 		mGrid.mUnits.add(mPackman);
 		
 		mButton1 = new Unit();
@@ -103,11 +103,11 @@ public class ActionActivity extends Activity {
 					delayedUpdate();
 					mPackman.x += 100;
 					delayedUpdate();
-					mPackman.y -= 100;
+					mPackman.y += 100;
 					delayedUpdate();
 					mPackman.x -= 100;
 					delayedUpdate();
-					mPackman.y += 100;
+					mPackman.y -= 100;
 					
 					count++;
 				} 

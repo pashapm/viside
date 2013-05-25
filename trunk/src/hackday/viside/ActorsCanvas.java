@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
@@ -45,6 +46,17 @@ public class ActorsCanvas extends ImageView {
 	public void onDraw(Canvas canvas) {
 		for (Unit unit : getUnits()) {
 			unit.draw(canvas, mPaint);
+			if (unit == mActiveUnit) {
+				mPaint.setColor(Color.RED);
+				mPaint.setStrokeWidth(3);
+				
+				canvas.drawLine(unit.x, unit.y, unit.x + unit.width, unit.y, mPaint);
+				canvas.drawLine(unit.x + unit.width, unit.y, unit.x + unit.width, unit.y + unit.height, mPaint);
+				canvas.drawLine(unit.x + unit.width, unit.y + unit.height, unit.x, unit.y + unit.height, mPaint);
+				canvas.drawLine(unit.x, unit.y + unit.height, unit.x, unit.y, mPaint);
+				
+				mPaint.setColor(Color.BLACK);
+			}
 		}
 	}
 
