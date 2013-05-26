@@ -165,22 +165,22 @@ public class BlockListFragment extends ListFragment
 
         BlockThumb  dummy = new BlockThumb();
                     dummy.color = Color.parseColor("#cccccc");
-                    dummy.name = "if...then...";
+                    dummy.name = res.getString(R.string.if_);
                     dummy.type = TYPE.DUMMY;
 
         BlockThumb  dummy2 = new BlockThumb();
                     dummy2.color = Color.parseColor("#cccccc");
-                    dummy2.name = "Open...";
+                    dummy2.name = res.getString(R.string.open);
                     dummy2.type = TYPE.DUMMY;
 
         BlockThumb  dummy3 = new BlockThumb();
-                    dummy3.color = Color.parseColor("#ffd42a");
-                    dummy3.name = "Angry Bird";
+                    dummy3.color = Color.parseColor("#ff0000");
+                    dummy3.name = res.getString(R.string.destroy);
                     dummy3.type = TYPE.DUMMY;
 
         BlockThumb  dummy4 = new BlockThumb();
                     dummy4.color = Color.parseColor("#00d42a");
-                    dummy4.name = "Points";
+                    dummy4.name = res.getString(R.string.shoot);
                     dummy4.type = TYPE.DUMMY;
 
         mList.add(receive);

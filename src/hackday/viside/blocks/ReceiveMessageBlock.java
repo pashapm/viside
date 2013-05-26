@@ -13,7 +13,7 @@ public class ReceiveMessageBlock extends Unit {
 	
 	public ReceiveMessageBlock(Context ctx, String msgName) {
 		mCtx = ctx;
-		setBitmap(BitmapFactory.decodeResource(mCtx.getResources(), R.drawable.receive));
+		setBitmap(BitmapFactory.decodeResource(mCtx.getResources(), R.drawable.receive2));
 		mMessage = msgName;
 	}
 	
