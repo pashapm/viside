@@ -21,5 +21,9 @@
     <string name="send">Send</string>
     <string name="receive_msg">Receive message</string>
     <string name="send_msg">Send message</string>
+    <string name="if_">IF</string>
+    <string name="open">Open</string>
+    <string name="destroy">Destroy</string>
+    <string name="shoot">Shoot</string>
 
 </resources>

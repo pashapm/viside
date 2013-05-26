@@ -4,6 +4,7 @@
                 android:layout_height="match_parent"
         >
     <LinearLayout
+            android:id="@+id/mainlayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
@@ -31,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:id="@+id/startButton"
+            android:layout_centerInParent="true"
             android:layout_alignParentBottom="true"
             android:background="@drawable/btn_start"
             android:contentDescription="Start Button"/>
@@ -42,5 +44,18 @@
             android:layout_alignParentRight="true"
             android:layout_height="match_parent">
     </fragment>
+
+    <!--<com.capricorn.RayMenu
+            android:id="@+id/ray_menu"
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" />-->
+
+    <!--<com.capricorn.ArcMenu
+            android:id="@+id/arc_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />-->
 
 </RelativeLayout>

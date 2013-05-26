@@ -22,5 +22,9 @@
     <string name="send">Послать</string>
     <string name="receive_msg">Получить сообщение</string>
     <string name="send_msg">Послать сообщение</string>
+    <string name="if_">Если</string>
+    <string name="open">Открыть</string>
+    <string name="destroy">Убрать</string>
+    <string name="shoot">Стрелять</string>
 
 </resources>
